@@ -30,10 +30,10 @@ export default function Home() {
     <div className="p-4 space-y-4">
       <h2 className="text-xl font-bold">Berita Terbaru</h2>
 
-      {data.length ? (
-        data.map((item, i) => <NewsCard key={i} item={item} />)
-      ) : (
-        <div>Tidak ada data</div>
+    {data.length ? (
+      data.map((item, i) => <NewsCard key={i} item={item} index={i} data={data} />)
+    ) : (
+      <div>Tidak ada data</div>
       )}
     </div>
   );

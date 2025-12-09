@@ -1,7 +1,7 @@
 // src/components/NewsCard.jsx
 import { Link } from "react-router-dom";
 
-export default function NewsCard({ item }) {
+export default function NewsCard({ item, index, data }) {
   return (
     <div className="border rounded-lg p-3 shadow-sm bg-white">
       {item.image_url && (
@@ -19,8 +19,9 @@ export default function NewsCard({ item }) {
       </p>
 
       <Link
-        to={`/detail/${item.article_id}`}
-        className="text-blue-600 text-sm underline"
+        to={`/detail/${index}`}
+        state={{ data }}
+        className="mt-2 inline-block px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
       >
         Baca selengkapnya
       </Link>
