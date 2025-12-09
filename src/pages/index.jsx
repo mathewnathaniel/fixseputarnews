@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React, { useEffect, useState } from "react";
 import { getNews } from "../services/api";
 import NewsCard from "../components/newscard";
@@ -19,7 +18,6 @@ export default function Home() {
         setLoading(false);
       }
     };
-
     loadNews();
   }, []);
 
@@ -27,13 +25,16 @@ export default function Home() {
   if (error) return <div className="p-4">Error: {error.message}</div>;
 
   return (
-    <div className="p-4 space-y-4">
-      <h2 className="text-xl font-bold">Berita Terbaru</h2>
-
-    {data.length ? (
-      data.map((item, i) => <NewsCard key={i} item={item} index={i} data={data} />)
-    ) : (
-      <div>Tidak ada data</div>
+    <div className="p-4 space-y-6">
+      <h2 className="text-2xl font-bold">Berita Terbaru</h2>
+      {data.length ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {data.map((item, i) => (
+            <NewsCard key={i} item={item} />
+          ))}
+        </div>
+      ) : (
+        <div>Tidak ada data berita</div>
       )}
     </div>
   );
